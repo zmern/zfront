@@ -1,0 +1,121 @@
+include profile
+  
+  block loadScript
+    script(src="javascripts/clients.js")
+    
+  block loadStyle
+    link(rel="stylesheet" href="stylesheets/clients.css")
+  
+  block content
+    - const copyTh = [{label: "Client"}, {label: "Email"}, {label: "Mobile"}, {label: "Status"}, {label: "Date"}, {label: "Action"}]
+    - const copyLoader = [0, 1, 2, 3, 4]
+    p.medium-font Clients
+    .card.container-fluid.border-none.p-3.rounded-0
+      .card-body
+        .row
+          .col-md-4
+            div.d-flex.align-items-center
+              button.btn.icon-btn-info.me-3.filter-btn
+                i.fa.fa-cog.fa-spin
+              input.form-control.input.remove-focus.rounded-0.filter.filter-by-name(placeholder="Search by name")
+          .col-md-5
+          .col-md-3.d-flex.justify-content-end
+            div.dropdown
+              button.btn.btn-light.rounded-0.me-3.dropdown-toggle(data-bs-toggle="dropdown") Export
+              div.dropdown-menu.rounded-0.mt-2
+                a.dropdown-item#current(href="#") Current
+                a.dropdown-item#all(href="#") All
+            button.btn.btn-primary.rounded-0#add-client-btn(type="button") Add client
+        table.table.my-4
+          tr
+            th Client
+            th Email
+            th Mobile
+            th Status
+            th Date
+            th Action
+          each loader of copyLoader
+            tr.d-none.clients-skeleton
+              td.py-3(colspan="6")
+                div.d-flex
+                  div.me-3.d-flex.align-items-center
+                    div.skeleton#client-pic
+                      div.skeleton-loader
+                  div.w-100
+                    div.mb-2.w-100.skeleton#client-title
+                      div.skeleton-loader
+                    div.w-75.skeleton#client-subtitle
+                      div.skeleton-loader
+        div.btn-group.float-end
+          button.btn.border#prev(disabled="disabled") Prev
+          div.btn-group#client-pagination
+          button.btn.border#next Next
+            
+    .modal.animate__animated.animate__flipInX#client-modal
+      .modal-dialog.modal-dialog-centered
+        .modal-content.rounded-0.px-4.py-3
+          .modal-body
+            h1.medium-font Client details
+            form#client-form
+              .form-group.my-4
+                input.form-control.input.rounded-0.remove-focus(
+                    type="text"
+                    name="clientName"
+                    placeholder="Client name"
+                    required="required"
+                  )
+                  
+              .form-group.mb-4
+                input.form-control.input.rounded-0.remove-focus#add-client-email(
+                    type="email"
+                    name="clientEmail"
+                    placeholder="email id"
+                    required="required"
+                  )
+                  
+              .form-group.mb-4
+                input.form-control.input.rounded-0.remove-focus#country(
+                    type="text"
+                    name="clientCountry"
+                    placeholder="Country"
+                    required="required"
+                  )
+                  
+              .form-group.mb-4.d-flex
+                button.btn.btn-light.rounded-0.me-3#code(type="button") +91
+                input.form-control.input.rounded-0.remove-focus(
+                    type="number"
+                    name="clientMobile"
+                    placeholder="Mobile"
+                    required="required"
+                  )
+              
+              button.btn.btn-primary.rounded-0#add-client-submit(type="submit") Submit
+              button.btn.btn-dark.rounded-0.btn-design.d-none#add-client-loader(type="button" disabled="disabled")
+                span.spinner-grow.spinner-grow-sm.me-2
+                span Process
+    
+    .modal.animate__animated.animate__flipInX#share-modal
+      .modal-dialog.modal-dialog-centered
+        .modal-content.rounded-0
+          .modal-body.px-5.py-4
+            h4.medium-font Share Link
+            .form-group.my-4
+              input.form-control.input.rounded-0.remove-focus.link(
+                  type="text"
+                  name="link"
+                  required="required"
+                )
+                  
+            .form-group.mb-4.d-flex
+              button.btn.icon-btn-info.me-4.copy-link
+                i.fa.fa-copy
+              button.btn.icon-btn-warning.me-4.share-on-email
+                i.fa.fa-envelope
+              button.btn.icon-btn-success.me-4.share-on-whatsapp
+                img(src="images/whatsapp.png")
+          .progressive-loading.d-none
+            .moving-progress
+            
+    span.tmp
+      

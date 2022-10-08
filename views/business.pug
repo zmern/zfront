@@ -1,0 +1,21 @@
+include profile
+  
+  block loadScript
+    //script(src="javascripts/clients.js")
+    
+  block loadStyle
+    link(rel="stylesheet" href="stylesheets/clients.css")
+  
+  block content
+    - const copyTh = [{label: "Client"}, {label: "Email"}, {label: "Mobile"}, {label: "Status"}, {label: "Date"}, {label: "Action"}]
+    p.medium-font Business
+    .card.container-fluid.border-none.p-3.rounded-0
+      .card-body
+        table.table.my-4
+          tr
+            th Business
+            th Email
+            th Mobile
+            th Status
+            th Date
+            th Action

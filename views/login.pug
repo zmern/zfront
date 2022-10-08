@@ -1,0 +1,55 @@
+div.modal.animate__animated.animate__flipInX#login-modal
+	div.modal-dialog.modal-lg.modal-dialog-centered
+		div.modal-content.rounded-0
+			div.modal-header.border-0
+				button.btn-close(type="button" data-bs-dismiss="modal")
+			div.modal-body
+				div.row
+					div.col-md-6.d-flex.align-items-center.justify-content-center
+						img(src="images/signup.svg" width="100%")
+					div.col-md-6.pe-4.d-flex.flex-column.justify-content-center
+						h6.display-6 Welcome
+						form#login-form
+							div.form-group.my-4
+								div.form-group.mb-4
+								input.form-control.login-email(
+									type="email"
+									name="email"
+									placeholder="Company email"
+									value="zfront@gmail.com"
+									required="required"
+								)
+								span.text-danger.login-email-error
+
+							div.form-group.mb-4
+								input.form-control.login-password(
+									type="password"
+									name="password"
+									placeholder="Password"
+									value="12345"
+									required="required"
+								)
+								span.text-danger.login-password-error
+							div.form-group.mb-4
+								div.form-check.form-check-inline
+									input#admin.form-check-input.login-as(type='radio' name='loginAs' value='admin')
+									label.form-check-label(for='admin') Admin
+								div.form-check.form-check-inline
+									input#client.form-check-input.login-as(type='radio' name='loginAs' value='client')
+									label.form-check-label(for='client') Client
+									
+								div.form-check.form-check-inline
+									input#team.form-check-input.login-as(type='radio' name='loginAs' value='team')
+									label.form-check-label(for='team') Team
+								
+							div.form-group.mb-4
+								button.btn.btn-dark.rounded-0.px-3.shadow-sm.login-btn(type="submit" disabled) Login
+								button.btn.btn-dark.rounded-0.login-before-send.d-none(type="button" disabled="disabled")
+									span.spinner-grow.spinner-grow-sm.me-2
+									span Process...
+								p.text-danger.mt-2.other-message
+							p New user? 
+								a.request-signup-modal(href="#") create an account
+
+			div.modal-footer.border-0
+				button.btn.btn-danger.rounded-0.px-3(type="button" data-bs-dismiss="modal") Close

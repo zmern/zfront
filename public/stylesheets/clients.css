@@ -1,0 +1,30 @@
+#client-pic {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #f5f5f5;
+}
+
+#client-title {
+  height: 30px;
+  background: #f5f5f5;
+}
+
+#client-subtitle {
+  height: 15px;
+  background: #f5f5f5;
+}
+
+th {
+  border: none !important;
+  background: #f5f5f5 !important;
+}
+
+td {
+  border-bottom: 1px solid #f5f5f5 !important;
+}
+
+.active {
+  background: #f8f5ff !important;
+  color: #833aea !important;
+}

@@ -1,0 +1,60 @@
+div.modal.animate__animated.animate__flipInX#signup-modal
+	div.modal-dialog.modal-lg.modal-dialog-centered
+		div.modal-content.rounded-0
+			div.modal-header.border-0
+				button.btn-close(type="button" data-bs-dismiss="modal")
+			div.modal-body
+				div.row
+					div.col-md-6.d-flex.align-items-center.justify-content-center
+						img(src="images/signup.svg" width="100%")
+					div.col-md-6.pe-5
+						h6.display-6 Register Now
+						form#signup-form
+							div.form-group.my-4
+								input.form-control.company-name(
+									type="text"
+									name="company_name"
+									placeholder="Enter company name"
+									value="Zfront"
+									required="required"
+								)
+								span.company-name-error.text-danger
+
+							div.form-group.mb-4
+								input.form-control.company-email(
+									type="email"
+									name="email"
+									placeholder="Company email"
+									value="zfront@gmail.com"
+									required="required"
+								)
+								span.company-email-error.text-danger
+
+							div.form-group.mb-4
+								input.form-control(
+									type="number"
+									name="mobile"
+									placeholder="Company Phone"
+									value="7073066389"
+									required="required"
+								)
+
+							div.form-group.mb-4
+								input.form-control(
+									type="password"
+									name="password"
+									placeholder="Password"
+									value="12345"
+									required="required"
+								)
+
+							div.form-group.mb-4
+								button.btn.btn-dark.rounded-0.px-3.shadow-sm.signup-btn(type="submit") Signup
+								button.btn.btn-dark.rounded-0.d-none.signup-before-send(type="button" disabled="disabled")
+									span.spinner-grow.spinner-grow-sm.me-2
+									span Loading..
+							p Already have an account? 
+								a.request-login-modal(href="#") Login
+
+			div.modal-footer.border-0
+				button.btn.btn-danger.rounded-0.px-3(type="button" data-bs-dismiss="modal") Close
