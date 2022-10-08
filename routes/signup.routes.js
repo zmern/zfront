@@ -8,7 +8,7 @@ router.post("/", async (request, response)=>{
 	const token = await tokenService.createToken(request, expiresIn);
 
 
-	const endpoint = request.get("origin") || "http://"+request.get("host");
+	const endpoint = request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host");
 	const companyRes = await httpService.postRequest({
 		endpoint: endpoint,
 		api: "/api/private/company",
@@ -18,7 +18,7 @@ router.post("/", async (request, response)=>{
 
 	if(companyRes.body.isCompanyCreated)
 	{
-		const endpoint = request.get("origin") || "http://"+request.get("host");
+		const endpoint = request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host");
 		const formData = {
 			uid: companyRes.body.data._id,
 			password: request.body.password,

@@ -28,7 +28,7 @@ const adminLogger = async (request, response)=>{
 	const token = await tokenService.createToken(request, expiresIn);
 
 	const companyRes = await httpService.getRequest({
-		endpoint: request.get("origin") || "http://"+request.get("host"),
+		endpoint: request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host"),
 		api: "/api/private/company",
 		data: token
 	});
@@ -41,7 +41,7 @@ const adminLogger = async (request, response)=>{
 			companyInfo: companyRes.body.data
 		}
 
-		const endpoint = request.get("origin") || "http://"+request.get("host");
+		const endpoint = request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host");
 		const iss = endpoint+request.originalUrl;
 		const data = {
 			body: formData,
@@ -125,7 +125,7 @@ const clientLogger = async (request, response)=>{
 	const token = await tokenService.createToken(request, expiresIn);
 
 	const companyRes = await httpService.getRequest({
-		endpoint: request.get("origin") || "http://"+request.get("host"),
+		endpoint: request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host"),
 		api: "/clients/login",
 		data: token
 	});
@@ -138,7 +138,7 @@ const clientLogger = async (request, response)=>{
 			clientInfo: companyRes.body.data
 		}
 
-		const endpoint = request.get("origin") || "http://"+request.get("host");
+		const endpoint = request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host");
 		const iss = endpoint+request.originalUrl;
 		const data = {
 			body: formData,
@@ -223,7 +223,7 @@ const teamLogger = async (request, response)=>{
 	const token = await tokenService.createToken(request, expiresIn);
 
 	const companyRes = await httpService.getRequest({
-		endpoint: request.get("origin") || "http://"+request.get("host"),
+		endpoint: request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host"),
 		api: "/api/private/company",
 		data: token
 	});
@@ -236,7 +236,7 @@ const teamLogger = async (request, response)=>{
 			teamInfo: companyRes.body.data
 		}
 
-		const endpoint = request.get("origin") || "http://"+request.get("host");
+		const endpoint = request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host");
 		const iss = endpoint+request.originalUrl;
 		const data = {
 			body: formData,

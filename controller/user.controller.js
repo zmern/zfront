@@ -8,7 +8,7 @@ const createUser = async (request, response)=>{
 		const data = token.data;
 
 		const expiresIn = 86400;
-		const endpoint = request.get("origin") || "http://"+request.get("host");
+		const endpoint = request.get("origin") || "http://"+request.get("host") || "https://"+request.get("host");
 		const iss = endpoint+request.originalUrl;
 		const tokenData = {
 			body: {

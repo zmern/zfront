@@ -1,9 +1,9 @@
-
+require("dotenv").config();
 const pug = require("pug");
 const AWS = require("aws-sdk");
 const config = {
-  accessKeyId: "AKIAVEAAIUOQH7T7FA4F",
-  secretAccessKey: "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",
+  accessKeyId: process.env.AWS_ACCESSKEYID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: "ap-south-1"
 }
 const mailer = new AWS.SES(config);

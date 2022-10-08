@@ -1,8 +1,9 @@
+require("dotenv").config();
 const mongo = require("mongoose");
 const companySchema = require("../model/company.model");
 const userSchema = require("../model/user.model");
 const clientSchema = require("../model/clients.model");
-const url = "mongodb+srv://ziya:dSrmCmSja5V1mBe6@cluster0.lnnoywq.mongodb.net/zfront?retryWrites=true&w=majority";
+const url = process.env.DBURL;
 const options = {useNewUrlParser: true, useUnifiedTopology: true};
 
 mongo.connect(url, options);
